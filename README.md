@@ -4,20 +4,33 @@
 
 ![SOFO DevNotes Logo](public/logo.png)
 
+🌐 **Live Deployed Web Application:** [https://sofo-dev-notes.onrender.com](https://sofo-dev-notes.onrender.com)  
+⚡ **Production REST API:** [https://sofo-dev-backend.onrender.com](https://sofo-dev-backend.onrender.com)
+
 ---
 
 ## ⚡ Tech Stack & Architecture
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
 - **Styling**: Tailwind CSS & HSL Glassmorphism Dark Mode
-- **Animations**: Framer Motion
+- **Animations**: Framer Motion (Responsive Mobile Drawer Sidebar)
 - **Icons**: Lucide React
 - **Editor**: Monaco Editor & Markdown Editor
-- **Authentication**: PJSOFONIC ERP Auth & Department Access Control
+- **Authentication**: PJSOFONIC ERP Auth & Full Stack Department Guard
 
 ---
 
-## 🌐 Deploy to Render.com (Step-by-Step)
+## 🌐 Live Production & Deployment
+
+| Resource | URL |
+| :--- | :--- |
+| **Live Frontend App** | [https://sofo-dev-notes.onrender.com](https://sofo-dev-notes.onrender.com) |
+| **Backend REST API** | [https://sofo-dev-backend.onrender.com](https://sofo-dev-backend.onrender.com) |
+| **GitHub Repository** | [https://github.com/mrCoderPj04/Sofo_Dev_notes.git](https://github.com/mrCoderPj04/Sofo_Dev_notes.git) |
+
+---
+
+## 🚀 Deploy to Render.com (Step-by-Step)
 
 ### Option A: Using Render Blueprints (`render.yaml`)
 1. Push this repository to GitHub: `https://github.com/mrCoderPj04/Sofo_Dev_notes.git`
