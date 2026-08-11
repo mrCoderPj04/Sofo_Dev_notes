@@ -17,17 +17,24 @@
 
 ---
 
-## 📱 Features
+## 🌐 Deploy to Render.com (Step-by-Step)
 
-- 📱 **Auto Viewport & Mobile Sidebar**: Responsive full-screen mobile slide-over drawer sidebar for smooth navigation on all mobile browsers.
-- 🔒 **ERP Auth Guard**: Integrated login with PJSOFONIC ERP, granting access to Full Stack department members.
-- 💻 **Monaco Code Editor**: Live code editor with automatic file attachment synchronization.
-- 🖥️ **Inline Terminal Console**: View, copy, and save execution outputs directly inline.
-- ⚡ **Knowledge Base**: Structured organization by Languages, Categories, Folders, Topics, Notes, Code Snippets, File Storage, Outputs, and Favorites.
+### Option A: Using Render Blueprints (`render.yaml`)
+1. Push this repository to GitHub: `https://github.com/mrCoderPj04/Sofo_Dev_notes.git`
+2. Open [Render Dashboard](https://dashboard.render.com/) -> Click **New +** -> Select **Blueprint**.
+3. Connect your repository `Sofo_Dev_notes`. Render will automatically detect `render.yaml` and configure the build & start commands!
+
+### Option B: Manual Web Service Setup
+- **Service Type**: Web Service
+- **Build Command**: `npm install && npm run build`
+- **Start Command**: `npm start`
+- **Environment Variables**:
+  - `NODE_ENV`: `production`
+  - `NEXT_PUBLIC_API_URL`: `https://sofo-dev-backend.onrender.com/api`
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Development Setup
 
 ### 1. Install Dependencies
 ```bash
