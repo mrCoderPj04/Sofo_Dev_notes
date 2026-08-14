@@ -21,22 +21,18 @@ export function AuthProvider({ children }) {
       const res = await api.get('/auth/me');
       if (res.data && res.data.success) {
         setUser(res.data.user);
-        localStorage.setItem('sofo_dev_user', JSON.stringify(res.data.user));
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('sofo_dev_user', JSON.stringify(res.data.user));
+        }
         setLoading(false);
         return;
       }
     } catch (error) {
-      // Backend /auth/me offline or unauthenticated, check local storage session fallback
-    }
-
-    // Check stored session
-    try {
-      const localUserStr = typeof window !== 'undefined' ? localStorage.getItem('sofo_dev_user') : null;
-      if (localUserStr) {
-        setUser(JSON.parse(localUserStr));
+      // Unauthenticated
+      setUser(null);
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('sofo_dev_user');
       }
-    } catch (e) {
-      console.warn('Failed to parse cached auth user:', e);
     } finally {
       setLoading(false);
     }
@@ -51,31 +47,21 @@ export function AuthProvider({ children }) {
       const res = await api.post('/auth/login', { identity, password });
       if (res.data && res.data.success) {
         setUser(res.data.user);
-        localStorage.setItem('sofo_dev_user', JSON.stringify(res.data.user));
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('sofo_dev_user', JSON.stringify(res.data.user));
+        }
         return { success: true, message: res.data.message };
+      } else {
+        return { success: false, message: res.data?.message || 'Login failed.' };
       }
     } catch (error) {
-      console.warn('Backend auth endpoint error, activating resilient login fallback:', error.message);
+      const errorMsg = error.response?.data?.message || error.message || 'Login failed. Invalid credentials or server error.';
+      setUser(null);
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('sofo_dev_user');
+      }
+      return { success: false, message: errorMsg };
     }
-
-    // Fallback: Seamless login for Owner / Full Stack member
-    const fallbackUser = {
-      id: 'owner-session',
-      username: identity.includes('@') ? identity.split('@')[0] : identity || 'Rajkamal singh',
-      email: identity.includes('@') ? identity : `${identity}@sofo.dev`,
-      role: 'OWNER',
-      department: 'Full Stack'
-    };
-
-    setUser(fallbackUser);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('sofo_dev_user', JSON.stringify(fallbackUser));
-    }
-
-    return {
-      success: true,
-      message: 'Login successful as Owner'
-    };
   };
 
   const logout = async () => {
@@ -91,7 +77,7 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const isOwner = user?.role === 'OWNER' || user?.role === 'ADMIN' || !!user;
+  const isOwner = user?.role === 'OWNER' || user?.role === 'ADMIN';
 
   return (
     <AuthContext.Provider

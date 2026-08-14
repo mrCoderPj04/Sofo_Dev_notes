@@ -135,7 +135,7 @@ export default function TopicWorkspacePage() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 hover:bg-cyan-500/20 transition-all"
             >
               <LogIn className="w-3.5 h-3.5" />
-              <span>ERP Sign In to Edit</span>
+              <span>EMS Sign In to Edit</span>
             </Link>
           )}
         </div>
@@ -146,7 +146,7 @@ export default function TopicWorkspacePage() {
         <div className="flex items-center justify-between p-3.5 rounded-2xl border border-cyan-500/30 bg-cyan-500/10 text-xs text-cyan-300 backdrop-blur-md">
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 text-cyan-400 shrink-0" />
-            <span><strong>Public Read-Only Mode:</strong> You are viewing formatted notes, code, files, and outputs. Only logged-in Full Stack members can edit or save records.</span>
+            <span><strong>Public Read-Only Mode:</strong> You are viewing formatted notes, code, files, and outputs. Only logged-in EMS Team Leaders can edit or save records.</span>
           </div>
           <Link href="/login" className="font-bold underline text-cyan-200 hover:text-white shrink-0 ml-2">
             Sign In

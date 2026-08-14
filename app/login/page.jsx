@@ -50,8 +50,8 @@ export default function LoginPage() {
           <div className="flex justify-center">
             <Logo size="large" showTagline={true} />
           </div>
-          <h2 className="text-xl font-bold text-white pt-2">PJSOFONIC ERP Sign In</h2>
-          <p className="text-xs text-slate-400">Restricted Access • Full Stack Department Only</p>
+          <h2 className="text-xl font-bold text-white pt-2">EMS Team Leader Sign In</h2>
+          <p className="text-xs text-slate-400">Restricted Access • EMS Team Leader Only</p>
         </div>
 
         {/* Error Alert */}
@@ -100,13 +100,13 @@ export default function LoginPage() {
             className="w-full py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-cyan-glow hover:opacity-95 transition-all flex items-center justify-center gap-2"
           >
             <LogIn className="w-4 h-4" />
-            <span>{loading ? 'Authenticating with ERP...' : 'Sign In with ERP'}</span>
+            <span>{loading ? 'Authenticating with EMS...' : 'Sign In with EMS'}</span>
           </button>
         </form>
 
         <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 pt-2 border-t border-white/5">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Secured via PJSOFONIC ERP Authentication</span>
+          <span>Secured via EMS Backend Authentication</span>
         </div>
       </div>
     </div>

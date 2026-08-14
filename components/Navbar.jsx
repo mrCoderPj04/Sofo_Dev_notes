@@ -159,7 +159,7 @@ export default function Navbar() {
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-all"
                 >
                   <LogIn className="w-3.5 h-3.5" />
-                  <span>ERP Login</span>
+                  <span>EMS Login</span>
                 </Link>
               )}
             </div>
@@ -295,7 +295,7 @@ export default function Navbar() {
                     className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs border border-cyan-500/30 text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 transition-all"
                   >
                     <LogIn className="w-4 h-4" />
-                    <span>ERP Sign In (Full Stack)</span>
+                    <span>EMS Sign In (Team Leader)</span>
                   </Link>
                 )}
 
