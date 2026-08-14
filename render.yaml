@@ -1,11 +1,19 @@
 services:
   - type: web
-    name: sofo-devnotes-frontend
-    runtime: node
+    name: sofo-dev-notes-frontend
+    env: node
+    plan: free
+    region: singapore
     buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 3000
       - key: NEXT_PUBLIC_API_URL
         value: https://sofo-dev-backend.onrender.com/api
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: https://dggcqbvdvgjdhtsqfkby.supabase.co
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        value: sb_publishable_WbrNkwir_npCMKkI2Qmmxw_9XhSrtiH
